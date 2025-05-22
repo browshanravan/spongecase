@@ -10,9 +10,4 @@ def spong_word(word:str):
 
 
 def spong_phrase(phrase:str):
-	split_phrase= []
-	for x in phrase.split(" "):
-		split_phrase.append(spong_word(x))
-
-
-	return " ".join(split_phrase)
+	return " ".join([spong_word(x) for x in phrase.split(" ")])
