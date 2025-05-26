@@ -2,8 +2,8 @@ import streamlit as st
 from spongecase.src.utils import spong_phrase
 
 st.title("Welcome to sPoNgECasE app")
-st.header("")
 st.caption("This app is for demostration purposes only!")
+st.header("")
 
 
 text = st.text_area(
