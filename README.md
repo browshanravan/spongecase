@@ -61,7 +61,7 @@ spongecase/
 
 1. **Clone the repository**  
    ```bash
-   git clone https://github.com/behzadrowshanravan/spongecase.git
+   git clone https://github.com/browshanravan/spongecase.git
    cd spongecase
    ```
 
