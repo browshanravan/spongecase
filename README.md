@@ -53,7 +53,7 @@ spongecase/
 
 ### Prerequisites
 
-- Python 3.10  
+- Python 3.10 or higher
 - pip (or pip3)  
 - (Optional) VSCode + [Remote - Containers](https://code.visualstudio.com/docs/remote/containers) extension  
 
