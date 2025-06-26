@@ -2,115 +2,113 @@
 
 This `README.md` was created using my package [README_genie](https://github.com/browshanravan/README_genie).
 
-A lightweight, fun Streamlit web application that transforms your text into “spongecase” (alternating/random capitalisation) with a single click.
-
----
-
 ## About This Project
-
-sPoNgECasE is designed as a playful demo of Python text processing and Streamlit’s interactive UI. Given any input phrase or sentence, it randomly toggles each character between uppercase and lowercase, producing the familiar “sPoNgEcAsE” meme‐style text.
-
----
+sPoNgECasE is a lightweight, playful Streamlit web application that transforms any input text into “spongecase” (randomly alternating uppercase and lowercase letters) with a single click. It demonstrates simple Python text‐processing techniques alongside an interactive UI.
 
 ## Project Description
-
 - **Core functionality**  
-  - `spong_word(word: str)`: Randomly upper‐ or lowercases each character in a word.  
-  - `spong_phrase(phrase: str)`: Applies `spong_word` to each word in a phrase.
-
-- **Interface**  
+  - `spong_word(word: str)`  
+    Randomly toggles each character of a word between uppercase and lowercase.  
+  - `spong_phrase(phrase: str)`  
+    Applies `spong_word` to every word in a phrase, preserving spacing.
+- **Web interface**  
   - Built with [Streamlit](https://streamlit.io/)  
-  - Text area for input, button to trigger transformation, and live display of result
-
+  - Text area for input, a button to trigger the transformation, and real-time display of results  
 - **Use cases**  
-  - Generate humorous social‐media captions  
-  - Demonstrate simple Python package structure and deployment  
-  - Serve as a template for basic Streamlit apps
-
----
+  - Generate humorous captions or social-media posts  
+  - Illustrate basic Python package structure and deployment workflows  
+  - Serve as a template for beginner Streamlit applications  
+- **Deployment targets**  
+  - Local execution (via `app.sh` or `streamlit run`)  
+  - Containerised development (VS Code Dev Containers)  
+  - Cloud Run (using `deploy.sh`)  
+  - Heroku-style deployment (via `Procfile`)
 
 ## File Structure
-
 ```
 spongecase/
-├── .devcontainer/             # VSCode Dev Container configuration
+├── .devcontainer/             # VS Code Dev Container config
 │   ├── Dockerfile
 │   └── devcontainer.json
 ├── .streamlit/                # Streamlit configuration
 │   └── config.toml
 ├── spongecase/                # Python package
 │   └── src/
-│       └── utils.py           # spong_word & spong_phrase implementations
-├── app.sh                     # Installs requirements and launches the app
-├── main.py                    # Streamlit app entrypoint
+│       └── utils.py           # spong_word & spong_phrase
+├── app.sh                     # Installs deps & launches the app
+├── deploy.sh                  # Deploy to Google Cloud Run
+├── main.py                    # Streamlit app entry point
+├── Procfile                   # Heroku-compatible launch command
 ├── requirements.txt           # Python dependencies
-└── LICENSE                    # MIT License
+└── LICENSE                    # MIT Licence
 ```
-
----
 
 ## Getting Started
 
 ### Prerequisites
-
-- Python 3.10 or higher
+- Python 3.10 or higher  
 - pip (or pip3)  
-- (Optional) VSCode + [Remote - Containers](https://code.visualstudio.com/docs/remote/containers) extension  
+- (Optional) [VS Code](https://code.visualstudio.com/) + Remote – Containers extension  
+- (Optional) Google Cloud SDK (for Cloud Run deployment)
 
 ### Installation
-
 1. **Clone the repository**  
    ```bash
    git clone https://github.com/browshanravan/spongecase.git
    cd spongecase
    ```
-
 2. **Install dependencies**  
    ```bash
    pip3 install -r requirements.txt
    ```
 
 ### Quickstart
-
-- **Helper script**  
+- **Via helper script**  
   ```bash
   sh app.sh
   ```
-  This will install requirements and launch the app on port 8501.
-
+  This will install requirements and launch the app on port 8080.
 - **Manual launch**  
   ```bash
-  streamlit run main.py --server.port 8501
+  streamlit run main.py --server.port 8080
   ```
-
-- **Access**  
-  Open http://localhost:8501 in your browser.
-
----
+- **Access the app**  
+  Open http://localhost:8080 in your browser.
 
 ## Usage
-
 1. Enter any text into the provided text area.  
 2. Click the **sPoNgECasE** button.  
-3. View the transformed, randomly alternating‐caps output below.
+3. View your text transformed into random alternating caps.
 
----
+## Deployment
+
+### Google Cloud Run
+Adjust `PROJECT` and `LOCATION` in `deploy.sh`, then:
+```bash
+sh deploy.sh
+```
+
+### Heroku-style
+Ensure your app root contains `Procfile`.
+
+Heroku will detect the `web` process and run:
+```
+streamlit run main.py --server.port=8080 --server.address=0.0.0.0 --server.enableCORS=false
+```
 
 ## Development
 
-To develop inside a container in VSCode:
-
-1. Open the project in VSCode.  
+### VS Code Dev Container
+1. Open the project in VS Code.  
 2. When prompted, **Reopen in Container**.  
-3. The dev container is based on Python 3.10 and includes all necessary tools.  
-4. Inside the container shell, run:
+3. Inside the container shell:
    ```bash
    pip install -r requirements.txt
    streamlit run main.py
    ```
 
----
+## Configuration
+- **.streamlit/config.toml** controls theming, error reporting and server settings (e.g. `runOnSave`, `maxUploadSize`).
 
-## License
-
-This project is released under the **MIT License**. See [LICENSE](LICENSE) for details.
+## Licence
+This project is released under the **MIT Licence**. See [LICENSE](LICENSE) for details.
