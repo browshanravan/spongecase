@@ -83,7 +83,7 @@ spongecase/
 ## Deployment
 
 ### Google Cloud Run
-Adjust `PROJECT` and `LOCATION` in `deploy.sh`, then:
+Adjust `PROJECT`, `LOCATION`, `REPO` and `IMAGE` in `deploy.sh`, then:
 ```bash
 sh deploy.sh
 ```
