@@ -8,7 +8,7 @@ PROJECT=my-cloud-project-name
 LOCATION=us-central1
 
 #Docker repository name which can be found in GCP Artifacts
-REPO=api-repo
+REPO=streamlit-repo
 
 #Image/app name
 IMAGE=spongecase-app
