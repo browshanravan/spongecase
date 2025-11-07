@@ -70,7 +70,7 @@ spongecase/
   This will install requirements and launch the app on port 8080.
 - **Manual launch**  
   ```bash
-  streamlit run main.py --server.port 8080
+  streamlit run app.py --server.port 8080
   ```
 - **Access the app**  
   Open http://localhost:8080 in your browser.
@@ -93,7 +93,7 @@ Ensure your app root contains `Procfile`.
 
 Heroku will detect the `web` process and run:
 ```
-streamlit run main.py --server.port=8080 --server.address=0.0.0.0 --server.enableCORS=false
+streamlit run app.py --server.port=8080 --server.address=0.0.0.0 --server.enableCORS=false
 ```
 
 ## Development
@@ -104,7 +104,7 @@ streamlit run main.py --server.port=8080 --server.address=0.0.0.0 --server.enabl
 3. Inside the container shell:
    ```bash
    pip install -r requirements.txt
-   streamlit run main.py
+   streamlit run app.py
    ```
 
 ## Configuration
